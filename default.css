@@ -6,6 +6,10 @@
 
     --mainText:black;
     --secondaryText:#4b5156;
+
+    --themeDotBorder:#24292e;
+
+    --previewBg: rgb(251, 249, 243, 0.8);
 }
 
 html, body{
@@ -20,7 +24,7 @@ h1, h2, h3, h4, h5, h6, strong{
 }
 
 p, li, span, label, input, textarea{
-    color: var(--secondaryColor);
+    color: var(--secondaryText);
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -61,11 +65,180 @@ h6 {font-size: 16px;}
     display: grid;
     text-align: center; /*align content at center of the grid horizontally*/
     align-content: center;
-    border: 2px dashed lightcoral;
+    /*border: 2px dashed lightcoral;*/
     min-height: 10em;
 }
 
+.intro-wrapper{
+    background-color: var(--secondaryColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 5x 5x 0 0;
 
+    -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+    -mo-box-shadow: -1px 1 px 3 px -1px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+
+    display:grid;
+    grid-template-columns: 1fr 1fr; /*One fraction of the frame*/
+    grid-template-areas:
+        'navigation-wrapper navigation-wrapper'
+        'left-column right-column'
+    ;
+}
+
+.navigation-wrapper{
+    border-radius: 5x 5x 0 0;
+    grid-area: navigation-wrapper; /*Grid area ID*/
+    border-bottom: 1px soild var(--borderColor);
+    display: flex; /*stacks div tags left and right instead of normal newline*/
+    justify-content: space-between; /*align flexboxes left to right so all space is left between two flexboxes
+    align-items: center; /*align contents at the center of the box vertically*/
+    background-color: var(--mainColor);
+}
+
+#navigation{
+    margin:0;
+    padding: 10px; /*a margin is the space around an element's border, while padding is the space between an element's border and the element's content*/
+}
+
+#navigation li{
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.dots-wrapper{
+    display: flex;
+    padding: 10px;
+}
+
+#dot-1{
+    background-color: #FC6058;
+}
+
+#dot-2{
+    background-color: #FEC02F;
+}
+
+#dot-3{
+    background-color: #2ACA3E;
+}
+
+.browser-dot{
+    background-color:  black;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+
+    margin: 5px;
+    border: 2px solid var(--themeDotBorder);
+
+    -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+    -mo-box-shadow: -1px 1 px 3 px -1px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+}
+
+.left-column{
+    grid-area: left-column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#profile_pic{
+    display: block;
+    margin: 0 auto;
+
+    height: 200px;
+    width: 200px;
+    object-fit: cover; /*make sure we do not distort the image when we try to fit the 200 x 200 px setting*/
+    border: 2px solid var(--borderColor)
+}
+
+#theme-options-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.theme-dot{
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    border-radius: 50%;
+
+    margin: 5px;
+
+    -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+    -mo-box-shadow: -1px 1 px 3 px -1px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+
+    cursor: pointer; /*cursor turns into a pointer when it hovers over the dots*/
+}
+
+.theme-dot:hover{
+    border-width: 5px;
+}
+
+#light-mode{
+    background-color: #fff;
+}
+
+#blue-mode{
+    background-color: #192734;
+}
+
+#green-mode{
+    background-color: #78866b;
+}
+
+#purple-mode{
+    background-color: #7E4C74;
+}
+
+#settings-note{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.right-column{
+    grid-area: right-column;
+}
+
+#preview{
+    width: 350px;
+    border: 1.5px solid #17a2b8;
+    background-color: var(--previewBg);
+    padding: 15px;
+    position: relative; /*setting the position of the preview of right-column to be relative, so the corner dots' absolute positions will be 
+    at relative positions of the preview border*/
+}
+
+.corner{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid #17a2b8;
+    background-color: #fff;
+    position: absolute;
+}
+
+#corner-tl{
+    top: -5px;
+    left: -5px;
+}
+
+#corner-tr{
+    top: -5px;
+    right: -5px;
+}
+
+#corner-bl{
+    bottom: -5px;
+    left: -5px;
+}
+
+#corner-br{
+    bottom: -5px;
+    right: -5px;
+}
 @media screen and (max-width: 1200px){
     .main-container{
         width: 95%;
