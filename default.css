@@ -10,6 +10,9 @@
     --themeDotBorder:#24292e;
 
     --previewBg: rgb(251, 249, 243, 0.8);
+    --previewShadow:#f0ead6;
+    
+    --btnColor:black;
 }
 
 html, body{
@@ -165,6 +168,7 @@ h6 {font-size: 16px;}
     border-radius: 50%;
 
     margin: 5px;
+    border: 2px solid var(--themeDotBorder);
 
     -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
     -mo-box-shadow: -1px 1 px 3 px -1px rgba(0,0,0,0.75);
@@ -200,6 +204,19 @@ h6 {font-size: 16px;}
 
 .right-column{
     grid-area: right-column;
+    display: grid;
+    align-content: center;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#preview-shadow{
+    background-color: var(--previewShadow);
+    width: 300px;
+    height: 250px;
+    padding-left: 30px;
+    padding-top: 30px;
 }
 
 #preview{
@@ -239,8 +256,49 @@ h6 {font-size: 16px;}
     bottom: -5px;
     right: -5px;
 }
+
+.about-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /*auto-fit as many column
+     as you can into this row. with setting that column should never be smaller than 320px, natural stack items when starts crashing contents*/
+    padding-bottom: 50px;
+    padding-top: 50px;
+    gap:100px;
+}
+
+#skills{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--previewShadow);
+}
+
+.social_links{
+    display: grid;
+    align-content: center;
+    text-align: center;
+}
+.social_img{
+    width: 40%;
+    height: 40%;
+}
+
 @media screen and (max-width: 1200px){
     .main-container{
         width: 95%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .intro-wrapper{
+        grid-template-columns: 1fr; /*Only one fraction of the frame*/
+        grid-template-areas:
+            'navigation-wrapper'
+            'left-column'
+            'right-column'
+        ;
+    }
+
+    .right-column{
+        justify-content: center;
     }
 }
