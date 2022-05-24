@@ -130,18 +130,18 @@
         <div class="main-container">
             <h3 style="text-align:center;">Get In Touch</h3>
 
-            <form id="contact-form">
+            <form id="contact-form" method="post">
                 <label>Name</label>
-                <input class="input-field" type="text" name="name">
+                <input class="input-field" type="text" id="name-input">
 
                 <label>Subject</label>
-                <input class="input-field" type="text" name="subject">
+                <input class="input-field" type="text" id="subject-input">
 
                 <label>Email</label>
-                <input class="input-field" type="text" name="email">
+                <input class="input-field" type="email" id="email-input">
 
                 <label>Message</label>
-                <textarea class="input-field" type="text" name="message"></textarea>
+                <textarea class="input-field" type="text" id="message-input"></textarea>
 
                 <input id="submit-btn" type="submit" value="Send">
             </form>
@@ -149,6 +149,7 @@
     </section>
 
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="form.js"></script>
 </body>
     
 </html>
