@@ -60,7 +60,6 @@ function processForm(e)
 	  .then(json => console.log("Fetch API json response:", json, "\n"))
 	  .catch(err => console.log("Error occurs when sending the Fetch API request", err, "\n"))
 
-
     alert('Contact form submitted successfully!')
 
     e.target.reset()
@@ -69,7 +68,8 @@ function processForm(e)
 }
 
 
-let form = document.getElementById('contact-form')
+const form = document.getElementById('contact-form')
+
 if(form.attachEvent){
 	form.attachEvent("submit", processForm)
 } else {
